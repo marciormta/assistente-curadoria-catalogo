@@ -1,0 +1,222 @@
+:root {
+  --tinta: #1c1a17;
+  --papel: #f7f4ee;
+  --papel-2: #fffdf9;
+  --linha: #e3ddd1;
+  --acento: #8a5a2b;       /* marrom encadernação */
+  --acento-suave: #f0e6d8;
+  --musgo: #4a5d4e;
+  --cinza: #6b6256;
+  --erro: #9a3b2f;
+  --raio: 10px;
+  --sombra: 0 1px 2px rgba(28, 26, 23, .06), 0 8px 24px rgba(28, 26, 23, .05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- topo ---------- */
+.topo {
+  border-bottom: 1px solid var(--linha);
+  background: var(--papel-2);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.topo-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.marca-kicker {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--acento);
+}
+.marca h1 {
+  margin: 2px 0 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+.config {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  color: var(--cinza);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.config label { text-transform: uppercase; letter-spacing: .1em; }
+.config input {
+  width: 180px;
+  font-size: 12px;
+  padding: 5px 8px;
+  border: 1px solid var(--linha);
+  border-radius: 6px;
+  background: var(--papel);
+  color: var(--tinta);
+}
+
+/* ---------- conversa ---------- */
+.conversa {
+  flex: 1;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 20px 120px;
+}
+.msg {
+  margin-bottom: 22px;
+  line-height: 1.55;
+}
+.msg p { margin: 0 0 10px; }
+
+.msg.usuario {
+  display: flex;
+  justify-content: flex-end;
+}
+.msg.usuario .bolha {
+  background: var(--acento-suave);
+  border: 1px solid var(--linha);
+  padding: 10px 14px;
+  border-radius: var(--raio);
+  max-width: 80%;
+}
+.msg.assistente .bolha {
+  background: var(--papel-2);
+  border: 1px solid var(--linha);
+  border-left: 3px solid var(--acento);
+  padding: 14px 16px;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+.msg.intro p { color: var(--cinza); }
+
+/* sugestões */
+.sugestoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.sugestoes button {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12.5px;
+  background: var(--papel-2);
+  border: 1px solid var(--linha);
+  color: var(--musgo);
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.sugestoes button:hover { border-color: var(--acento); color: var(--acento); }
+
+/* meta (intenção/filtros) */
+.meta {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  color: var(--cinza);
+  margin-top: 10px;
+}
+.meta .tag {
+  display: inline-block;
+  background: var(--acento-suave);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-right: 4px;
+}
+
+/* referências */
+.refs { margin-top: 14px; display: grid; gap: 8px; }
+.refs-titulo {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin-bottom: 2px;
+}
+.ref-card {
+  border: 1px solid var(--linha);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: var(--papel);
+}
+.ref-card .rt { font-weight: 600; }
+.ref-card .rm {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  color: var(--cinza);
+  margin-top: 2px;
+}
+
+/* ---------- entrada ---------- */
+.entrada {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, var(--papel) 70%, transparent);
+  padding: 14px 20px 20px;
+}
+.entrada-inner {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  background: var(--papel-2);
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  padding: 8px 8px 8px 14px;
+  box-shadow: var(--sombra);
+}
+#pergunta {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--tinta);
+  max-height: 160px;
+  line-height: 1.5;
+  padding: 6px 0;
+}
+#enviar {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--acento);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+#enviar:disabled { opacity: .5; cursor: default; }
+
+/* loading */
+.carregando { color: var(--cinza); font-style: italic; }
+.erro .bolha { border-left-color: var(--erro); color: var(--erro); }
+
+@media (max-width: 560px) {
+  .config input { width: 120px; }
+  .marca h1 { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .msg { animation: surge .2s ease-out; }
+  @keyframes surge { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistente de Curadoria do Catálogo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="topo-inner">
+      <div class="marca">
+        <span class="marca-kicker">Editora · Curadoria</span>
+        <h1>Assistente do Catálogo</h1>
+      </div>
+      <div class="config">
+        <label for="api">API</label>
+        <input id="api" type="text" value="http://localhost:8000" spellcheck="false" />
+      </div>
+    </div>
+  </header>
+
+  <main class="conversa" id="conversa">
+    <div class="msg assistente intro">
+      <p>Pergunte sobre o catálogo: sinopses, recomendações, livros parecidos, listas por tema,
+         gênero ou público, e filtros como ano de publicação.</p>
+      <div class="sugestoes" id="sugestoes">
+        <button>Ficção científica sobre IA e consciência</button>
+        <button>Livro infantil publicado depois de 2015</button>
+        <button>Livros sobre ciência de dados</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="entrada">
+    <div class="entrada-inner">
+      <textarea id="pergunta" rows="1" placeholder="Escreva sua pergunta sobre o catálogo…"></textarea>
+      <button id="enviar" aria-label="Enviar">Enviar</button>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    container_name: curadoria-backend
+    env_file: .env
+    environment:
+      # Persistência do índice dentro do container (volume abaixo)
+      CHROMA_DIR: /app/data/chroma
+      BOOKS_PATH: /app/data/books.json
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persiste o índice ChromaDB entre reinícios e permite trocar o books.json sem rebuild.
+      - ./backend/data:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: curadoria-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

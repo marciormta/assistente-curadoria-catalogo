@@ -1,0 +1,22 @@
+# Segredos
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ChromaDB (índice persistido) — não versionar
+backend/data/chroma/
+**/chroma/
+
+# Avaliação
+backend/app/evaluation/eval_result.json
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
